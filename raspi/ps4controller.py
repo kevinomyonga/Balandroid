@@ -9,18 +9,16 @@
 #       if this is not the case, you will need to change the class accordingly.
 #
 # Copyright © 2019 Kevin N. Omyonga <komyonga@gmail.com>
-#
-# Distributed under terms of the MIT license.
 
 # PS4 Controller Button Numbering
 '''
 =============================
 No. |   Desination          |
 *****************************
-0   =   X                   |
-1   =   CIRCLE              |
-2   =   TRIANGLE            |
-3   =   SQUARE              |
+0   =   SQUARE              |
+1   =   X                   |
+2   =   CIRCLE              |
+3   =   TRIANGLE            |
 4   =   L1                  |
 5   =   R1                  |
 6   =   L2                  |
@@ -47,6 +45,7 @@ class PS4Controller(object):
     axis_data = None
     button_data = None
     hat_data = None
+    arduino = None
 
     def init(self):
         """Initialize the joystick components"""
@@ -57,11 +56,12 @@ class PS4Controller(object):
             pygame.joystick.init()
             self.controller = pygame.joystick.Joystick(0)
             self.controller.init()
+            print ('Joystick Found - Connection Established')
+            self.arduino = RasPiSerial()
         except pygame.error:
-            print ('No joystick found')
+            print ('No Joystick Found')
 
     def listen(self):
-        arduino = RasPiSerial()
         
         try:
             """Listen for events to happen"""
@@ -94,58 +94,62 @@ class PS4Controller(object):
                                 print ('up')
                     elif event.type == pygame.JOYBUTTONDOWN:
                         if event.button == 0:
-                            print ('Pressed the 0 button')
+                            print ('Pressed the SQUARE button')
                         if event.button == 1:
                             print ('Pressed the X button')
                         if event.button == 2:
-                            print ('Pressed the 2 button')
+                            print ('Pressed the CIRCLE button')
                         if event.button == 3:
-                            print ('Pressed the 3 button')
+                            print ('Pressed the TRIANGLE button')
                         if event.button == 4:
-                            print ('Pressed the 4 button')
+                            print ('Pressed the L1 button')
                         if event.button == 5:
-                            print ('Pressed the 5 button')
+                            print ('Pressed the R1 button')
                         if event.button == 6:
-                            print ('Pressed the 6 button')
+                            print ('Pressed the L2 button')
                         if event.button == 7:
-                            print ('Pressed the 7 button')
+                            print ('Pressed the R2 button')
                         if event.button == 8:
-                            print ('Pressed the 8 button')
+                            print ('Pressed the SHARE button')
                         if event.button == 9:
-                            print ('Pressed the 9 button')
+                            print ('Pressed the OPTION button')
                         if event.button == 10:
-                            print ('Pressed the 10 button')
+                            print ('Pressed the L3 button')
                         if event.button == 11:
-                            print ('Pressed the 11 button')
+                            print ('Pressed the R3 button')
                         if event.button == 12:
-                            print ('Pressed the 12 button')
+                            print ('Pressed the PS4 button')
+                        if event.button == 13:
+                            print ('Pressed the TOUCHPAD button')
                     elif event.type == pygame.JOYBUTTONUP:
                         if event.button == 0:
-                            print ('Released the 0 button')
+                            print ('Released the SQUARE button')
                         if event.button == 1:
                             print ('Released the X button')
                         if event.button == 2:
-                            print ('Released the 2 button')
+                            print ('Released the CIRCLE button')
                         if event.button == 3:
-                            print ('Released the 3 button')
+                            print ('Released the TRIANGLE button')
                         if event.button == 4:
-                            print ('Released the 4 button')
+                            print ('Released the L1 button')
                         if event.button == 5:
-                            print ('Released the 5 button')
+                            print ('Released the R1 button')
                         if event.button == 6:
-                            print ('Released the 6 button')
+                            print ('Released the L2 button')
                         if event.button == 7:
-                            print ('Released the 7 button')
+                            print ('Released the R2 button')
                         if event.button == 8:
-                            print ('Released the 8 button')
+                            print ('Released the SHARE button')
                         if event.button == 9:
-                            print ('Released the 9 button')
+                            print ('Released the OPTION button')
                         if event.button == 10:
-                            print ('Released the 10 button')
+                            print ('Released the L3 button')
                         if event.button == 11:
-                            print ('Released the 11 button')
+                            print ('Released the R3 button')
                         if event.button == 12:
-                            print ('Released the 12 button')
+                            print ('Released the PS4 button')
+                        if event.button == 13:
+                            print ('Released the TOUCHPAD button')
                     elif event.type == pygame.JOYHATMOTION:
                         if event.hat == 0:
                             if event.value == (1, 0):
@@ -166,7 +170,7 @@ class PS4Controller(object):
                     #pprint.pprint(self.hat_data)
              
         except KeyboardInterrupt:
-            print('EXITING NOW')
+            print('PROGRAM TERMINATED')
             self.controller.quit()
         except:
             print ('An exception occured while listening for the joystick')

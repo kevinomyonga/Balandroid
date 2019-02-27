@@ -6,8 +6,6 @@
 # script!
 #
 # Copyright © 2019 Kevin N. Omyonga <komyonga@gmail.com>
-#
-# Distributed under terms of the MIT license.
 
 import serial
 import time
@@ -19,6 +17,7 @@ class RasPiSerial(object):
         baudRate = 9600
         ser = serial.Serial(intfName, baudRate, timeout = 0.1)
         delay = 0.1
+        print('RasPi Arduino Serial Connection Established')
     except:
         print('An exception occured while listening for the Arduino')
 
