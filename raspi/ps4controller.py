@@ -10,33 +10,12 @@
 #
 # Copyright © 2019 Kevin N. Omyonga <komyonga@gmail.com>
 
-# PS4 Controller Button Numbering
-'''
-=============================
-No. |   Desination          |
-*****************************
-0   =   SQUARE              |
-1   =   X                   |
-2   =   CIRCLE              |
-3   =   TRIANGLE            |
-4   =   L1                  |
-5   =   R1                  |
-6   =   L2                  |
-7   =   R2                  |
-8   =   SHARE               |
-9   =   OPTIONS             |
-10  =   LEFT ANALOG PRESS   |
-11  =   RIGHT ANALOG PRESS  |
-12  =   PS4 ON BUTTON       |
-13  =   TOUCHPAD PRESS      |
-*****************************
-'''
-
 import os
 import pprint
 import pygame
 
-from raspiserial import *
+from constants import *
+from serial_comm.raspiserial import *
 
 class PS4Controller(object):
     """Class representing the PS4 controller. Pretty straightforward functionality."""
@@ -93,62 +72,62 @@ class PS4Controller(object):
                             if event.value < 0:
                                 print ('up')
                     elif event.type == pygame.JOYBUTTONDOWN:
-                        if event.button == 0:
+                        if event.button == SQUARE:
                             print ('Pressed the SQUARE button')
-                        if event.button == 1:
+                        if event.button == X:
                             print ('Pressed the X button')
-                        if event.button == 2:
+                        if event.button == CIRCLE:
                             print ('Pressed the CIRCLE button')
-                        if event.button == 3:
+                        if event.button == TRIANGLE:
                             print ('Pressed the TRIANGLE button')
-                        if event.button == 4:
+                        if event.button == L1:
                             print ('Pressed the L1 button')
-                        if event.button == 5:
+                        if event.button == R1:
                             print ('Pressed the R1 button')
-                        if event.button == 6:
+                        if event.button == L2:
                             print ('Pressed the L2 button')
-                        if event.button == 7:
+                        if event.button == R2:
                             print ('Pressed the R2 button')
-                        if event.button == 8:
+                        if event.button == SHARE:
                             print ('Pressed the SHARE button')
-                        if event.button == 9:
-                            print ('Pressed the OPTION button')
-                        if event.button == 10:
+                        if event.button == OPTIONS:
+                            print ('Pressed the OPTIONS button')
+                        if event.button == L3:
                             print ('Pressed the L3 button')
-                        if event.button == 11:
+                        if event.button == R3:
                             print ('Pressed the R3 button')
-                        if event.button == 12:
+                        if event.button == PS4_ON_BUTTON:
                             print ('Pressed the PS4 button')
-                        if event.button == 13:
+                        if event.button == TOUCHPAD_PRESS:
                             print ('Pressed the TOUCHPAD button')
                     elif event.type == pygame.JOYBUTTONUP:
-                        if event.button == 0:
+                        if event.button == SQUARE:
                             print ('Released the SQUARE button')
-                        if event.button == 1:
+                        if event.button == X:
                             print ('Released the X button')
-                        if event.button == 2:
+                        if event.button == CIRCLE:
                             print ('Released the CIRCLE button')
-                        if event.button == 3:
+                        if event.button == TRIANGLE:
                             print ('Released the TRIANGLE button')
-                        if event.button == 4:
+                        if event.button == L1:
                             print ('Released the L1 button')
-                        if event.button == 5:
+                        if event.button == R1:
                             print ('Released the R1 button')
-                        if event.button == 6:
+                        if event.button == L2:
                             print ('Released the L2 button')
-                        if event.button == 7:
+                        if event.button == R2:
                             print ('Released the R2 button')
-                        if event.button == 8:
+                        if event.button == SHARE:
                             print ('Released the SHARE button')
-                        if event.button == 9:
-                            print ('Released the OPTION button')
-                        if event.button == 10:
+                        if event.button == OPTIONS:
+                            print ('Released the OPTIONS button')
+                        if event.button == L3:
                             print ('Released the L3 button')
-                        if event.button == 11:
+                        if event.button == R3:
                             print ('Released the R3 button')
-                        if event.button == 12:
+                        if event.button == PS4_ON_BUTTON:
                             print ('Released the PS4 button')
-                        if event.button == 13:
+                        if event.button == TOUCHPAD_PRESS:
                             print ('Released the TOUCHPAD button')
                     elif event.type == pygame.JOYHATMOTION:
                         if event.hat == 0:
