@@ -16,6 +16,7 @@ import pygame
 
 from constants import *
 from serial_comm.raspiserial import *
+from image_processing.balandroidcam import *
 
 class PS4Controller(object):
     """Class representing the PS4 controller. Pretty straightforward functionality."""
@@ -24,7 +25,9 @@ class PS4Controller(object):
     axis_data = None
     button_data = None
     hat_data = None
+    
     arduino = None
+    raspi_camera = None
 
     def init(self):
         """Initialize the joystick components"""
@@ -37,6 +40,7 @@ class PS4Controller(object):
             self.controller.init()
             print ('Joystick Found - Connection Established')
             self.arduino = RasPiSerial()
+            self.raspi_camera = BalandroidCam()
         except pygame.error:
             print ('No Joystick Found')
 

@@ -28,18 +28,25 @@ class BalandroidCam(object):
     except:
         print('An Exception Occured While Listening For The Camera')
 
-    destination = ''
+    destination = '/home/pi/Desktop/'
     
-    def record_video():
+    def capture_image(self):
+        filename = os.path.join(self.destination, dt.datetime.now().strftime('%Y-%m-%d_%H.%M.%S.jpg'))
+        self.camera.start_preview()
+        self.camera.capture(filename)
+        self.camera.stop_preview()
+    
+    def record_video(self):
         filename = os.path.join(destination, dt.datetime.now().strftime('%Y-%m-%d_%H.%M.%S.h264'))
         camera.start_preview()
         camera.start_recording(filename)
 
-    def finish_video():
+    def finish_video(self):
         camera.stop_recording()
         camera.stop_preview()
     
     
 if __name__ == "__main__":
     balandroidcam = BalandroidCam()
+    balandroidcam.capture_image()
 
