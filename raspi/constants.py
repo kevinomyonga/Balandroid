@@ -2,21 +2,35 @@
 File containing all the constants used in the different files
 """
 
-# PS4 Controller Button Numbering
-SQUARE              = 0
-X                   = 1
-CIRCLE              = 2
-TRIANGLE            = 3
-L1                  = 4
-R1                  = 5
-L2                  = 6
-R2                  = 7
-SHARE               = 8
-OPTIONS             = 9
-L3 					= 10
-R3 					= 11
-PS4_ON_BUTTON       = 12
-TOUCHPAD_PRESS      = 13
+# PS4 Controller Button Configuration
+PS4_SQUARE              = 0
+PS4_X                   = 1
+PS4_CIRCLE              = 2
+PS4_TRIANGLE            = 3
+PS4_L1                  = 4
+PS4_R1                  = 5
+PS4_L2                  = 6
+PS4_R2                  = 7
+PS4_SHARE               = 8
+PS4_OPTIONS             = 9
+PS4_L3                  = 10
+PS4_R3                  = 11
+PS4_ON_BUTTON       	= 12
+PS4_TOUCHPAD_PRESS      = 13
+
+# XBOX One Controller Button Configuration =
+XBOX_A                   = 0
+XBOX_B                   = 1
+XBOX_X                   = 2
+XBOX_Y                   = 3
+XBOX_LB                  = 4
+XBOX_RB                  = 5
+XBOX_LT                  = 6
+XBOX_RT                  = 7
+XBOX_VIEW                = 8
+XBOX_MENU                = 9
+XBOX_LTHUMBSTICK         = 10
+XBOX_RTHUMBSTICK         = 11
 
 # PID Control
 Kp_turn = 65

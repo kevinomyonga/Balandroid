@@ -1,11 +1,11 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# This file presents an interface for interacting with the Playstation 4 Controller
-# in Python. Simply plug your PS4 controller into your computer using USB and run this
+# This file presents an interface for interacting with the XBox One Controller
+# in Python. Simply plug your XBOX controller into your computer using USB and run this
 # script!
 #
-# NOTE: I assume in this script that the only joystick plugged in is the PS4 controller.
+# NOTE: I assume in this script that the only joystick plugged in is the XBox One controller.
 #       if this is not the case, you will need to change the class accordingly.
 #
 # Copyright © 2019 Kevin N. Omyonga <komyonga@gmail.com>
@@ -18,8 +18,8 @@ from constants import *
 from serial_comm.raspiserial import *
 from image_processing.balandroidcam import *
 
-class PS4Controller(object):
-    """Class representing the PS4 controller. Pretty straightforward functionality."""
+class XBOXController(object):
+    """Class representing the XBOX controller. Pretty straightforward functionality."""
 
     controller = None
     axis_data = None
@@ -160,7 +160,8 @@ class PS4Controller(object):
 
 
 if __name__ == "__main__":
-    ps4 = PS4Controller()
-    ps4.init()
-    ps4.listen()
+    xbox = XBOXController()
+    xbox.init()
+    xbox.listen()
+
 

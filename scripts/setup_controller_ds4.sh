@@ -1,11 +1,5 @@
 #!/bin/sh
 
-# Install Joystick Package
-sudo apt-get install joystick -y
-
-# Joystick Package - Test js0
-#sudo jstest /dev/input/js0
-
 # Necessary Python3 Components
 sudo apt-get install python3-dev python3-pip
 
