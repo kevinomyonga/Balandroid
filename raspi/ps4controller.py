@@ -78,7 +78,9 @@ class PS4Controller(object):
                     elif event.type == pygame.JOYBUTTONDOWN:
                         if event.button == PS4_SQUARE:
                             print ('Pressed the SQUARE button')
-                        if event.button == X:
+                            print ('Stop')
+                            self.arduino.send('S')
+                        if event.button == PS4_X:
                             print ('Pressed the X button')
                         if event.button == PS4_CIRCLE:
                             print ('Pressed the CIRCLE button')
@@ -137,12 +139,16 @@ class PS4Controller(object):
                         if event.hat == 0:
                             if event.value == (1, 0):
                                 print ('right')
+                                self.arduino.send('R')
                             if event.value == (-1, 0):
                                 print ('left')
+                                self.arduino.send('L')
                             if event.value == (0, 1):
                                 print ('up')
+                                self.arduino.send('F')
                             if event.value == (0, -1):
                                 print ('down')
+                                self.arduino.send('B')
 
                     # Insert your code on what you would like to happen for each event here!
                     # In the current setup, I have the state simply printing out to the screen.
@@ -155,8 +161,8 @@ class PS4Controller(object):
         except KeyboardInterrupt:
             print('PROGRAM TERMINATED')
             self.controller.quit()
-        except:
-            print ('An exception occured while listening for the joystick')
+        #except:
+            #print ('An exception occured while listening for the joystick')
 
 
 if __name__ == "__main__":

@@ -23,24 +23,24 @@ class RasPiSerial(object):
 
     #if you only want to send data to arduino (i.e. a signal to move a servo)
     def send(self, theinput):
-        self.ser.write(theinput)
-        time.sleep(delay)
+        self.ser.write(theinput.encode())
+        time.sleep(self.delay)
 
     #if you would like to tell the arduino that you would like to receive data from the arduino
     def send_and_receive(self, theinput):
         self.ser.flushInput()
         self.ser.flushOutput()
-        self.ser.write(theinput)
+        self.ser.write(theinput.encode())
         
         while True:
             try:
-                time.sleep(delay)
+                time.sleep(self.delay)
                 state = self.ser.readline()
                 # print state
                 return state
             except:
                 pass
-            time.sleep(delay)
+            time.sleep(self.delay)
 
 
 if __name__ == "__main__":
