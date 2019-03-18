@@ -16,7 +16,7 @@ import pygame
 
 from constants import *
 from serial_comm.raspiserial import *
-from image_processing.balandroidcam import *
+#from image_processing.balandroidcam import *
 
 class PS4Controller(object):
     """Class representing the PS4 controller. Pretty straightforward functionality."""
@@ -27,7 +27,7 @@ class PS4Controller(object):
     hat_data = None
     
     arduino = None
-    raspi_camera = None
+    #raspi_camera = None
 
     def init(self):
         """Initialize the joystick components"""
@@ -40,9 +40,12 @@ class PS4Controller(object):
             self.controller.init()
             print ('Joystick Found - Connection Established')
             self.arduino = RasPiSerial()
-            self.raspi_camera = BalandroidCam()
+            #self.raspi_camera = BalandroidCam()
         except pygame.error:
             print ('No Joystick Found')
+        except Exception as err:
+            print ('An exception occured while attempting to connect to the joystick')
+            print(str(err))
 
     def listen(self):
         
@@ -161,8 +164,9 @@ class PS4Controller(object):
         except KeyboardInterrupt:
             print('PROGRAM TERMINATED')
             self.controller.quit()
-        #except:
-            #print ('An exception occured while listening for the joystick')
+        except Exception as err:
+            print ('An exception occured while listening for the joystick')
+            print(str(err))
 
 
 if __name__ == "__main__":

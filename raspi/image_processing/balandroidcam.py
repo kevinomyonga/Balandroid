@@ -25,8 +25,9 @@ class BalandroidCam(object):
         delay = 1
         time.sleep(delay)
         print('RasPi Camera Connection Established')
-    except:
+    except Exception as err:
         print('An Exception Occured While Listening For The Camera')
+        print(str(err))
 
     destination = '/home/pi/Desktop/Balandroid_Images'
     date_format = '%Y-%m-%d_%H.%M.%S'

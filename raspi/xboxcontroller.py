@@ -76,63 +76,55 @@ class XBOXController(object):
                             if event.value < 0:
                                 print ('up')
                     elif event.type == pygame.JOYBUTTONDOWN:
-                        if event.button == PS4_SQUARE:
-                            print ('Pressed the SQUARE button')
-                        if event.button == X:
+                        if event.button == XBOX_A:
+                            print ('Pressed the A button')
+                        if event.button == XBOX_B:
+                            print ('Pressed the B button')
+                        if event.button == XBOX_X:
                             print ('Pressed the X button')
-                        if event.button == PS4_CIRCLE:
-                            print ('Pressed the CIRCLE button')
-                        if event.button == PS4_TRIANGLE:
+                        if event.button == XBOX_Y:
                             print ('Pressed the TRIANGLE button')
-                        if event.button == PS4_L1:
-                            print ('Pressed the L1 button')
-                        if event.button == PS4_R1:
-                            print ('Pressed the R1 button')
-                        if event.button == PS4_L2:
-                            print ('Pressed the L2 button')
-                        if event.button == PS4_R2:
-                            print ('Pressed the R2 button')
-                        if event.button == PS4_SHARE:
-                            print ('Pressed the SHARE button')
-                        if event.button == PS4_OPTIONS:
-                            print ('Pressed the OPTIONS button')
-                        if event.button == PS4_L3:
-                            print ('Pressed the L3 button')
-                        if event.button == PS4_R3:
-                            print ('Pressed the R3 button')
-                        if event.button == PS4_ON_BUTTON:
-                            print ('Pressed the PS4 button')
-                        if event.button == PS4_TOUCHPAD_PRESS:
-                            print ('Pressed the TOUCHPAD button')
+                        if event.button == XBOX_LB:
+                            print ('Pressed the LB button')
+                        if event.button == XBOX_RB:
+                            print ('Pressed the RB button')
+                        if event.button == XBOX_LT:
+                            print ('Pressed the LT button')
+                        if event.button == XBOX_RT:
+                            print ('Pressed the RT button')
+                        if event.button == XBOX_VIEW:
+                            print ('Pressed the VIEW button')
+                        if event.button == XBOX_MENU:
+                            print ('Pressed the MENU button')
+                        if event.button == XBOX_LTHUMBSTICK:
+                            print ('Pressed the LTHUMBSTICK button')
+                        if event.button == XBOX_RTHUMBSTICK:
+                            print ('Pressed the RTHUMBSTICK button')
                     elif event.type == pygame.JOYBUTTONUP:
-                        if event.button == PS4_SQUARE:
-                            print ('Released the SQUARE button')
-                        if event.button == PS4_X:
+                        if event.button == XBOX_A:
+                            print ('Released the A button')
+                        if event.button == XBOX_B:
+                            print ('Released the B button')
+                        if event.button == XBOX_X:
                             print ('Released the X button')
-                        if event.button == PS4_CIRCLE:
-                            print ('Released the CIRCLE button')
-                        if event.button == PS4_TRIANGLE:
+                        if event.button == XBOX_Y:
                             print ('Released the TRIANGLE button')
-                        if event.button == PS4_L1:
-                            print ('Released the L1 button')
-                        if event.button == PS4_R1:
-                            print ('Released the R1 button')
-                        if event.button == PS4_L2:
-                            print ('Released the L2 button')
-                        if event.button == PS4_R2:
-                            print ('Released the R2 button')
-                        if event.button == PS4_SHARE:
-                            print ('Released the SHARE button')
-                        if event.button == PS4_OPTIONS:
-                            print ('Released the OPTIONS button')
-                        if event.button == PS4_L3:
-                            print ('Released the L3 button')
-                        if event.button == PS4_R3:
-                            print ('Released the R3 button')
-                        if event.button == PS4_ON_BUTTON:
-                            print ('Released the PS4 button')
-                        if event.button == PS4_TOUCHPAD_PRESS:
-                            print ('Released the TOUCHPAD button')
+                        if event.button == XBOX_LB:
+                            print ('Released the LB button')
+                        if event.button == XBOX_RB:
+                            print ('Released the RB button')
+                        if event.button == XBOX_LT:
+                            print ('Released the LT button')
+                        if event.button == XBOX_RT:
+                            print ('Released the RT button')
+                        if event.button == XBOX_VIEW:
+                            print ('Released the VIEW button')
+                        if event.button == XBOX_MENU:
+                            print ('Released the MENU button')
+                        if event.button == XBOX_LTHUMBSTICK:
+                            print ('Released the LTHUMBSTICK button')
+                        if event.button == XBOX_RTHUMBSTICK:
+                            print ('Released the RTHUMBSTICK button')
                     elif event.type == pygame.JOYHATMOTION:
                         if event.hat == 0:
                             if event.value == (1, 0):
@@ -155,8 +147,9 @@ class XBOXController(object):
         except KeyboardInterrupt:
             print('PROGRAM TERMINATED')
             self.controller.quit()
-        except:
+        except Exception err:
             print ('An exception occured while listening for the joystick')
+            print ('Error: '.format(err))
 
 
 if __name__ == "__main__":

@@ -18,8 +18,9 @@ class RasPiSerial(object):
         ser = serial.Serial(intfName, baudRate, timeout = 0.1)
         delay = 0.1
         print('RasPi Arduino Serial Connection Established')
-    except:
+    except Exception as err:
         print('An exception occured while listening for the Arduino')
+        print(str(err))
 
     #if you only want to send data to arduino (i.e. a signal to move a servo)
     def send(self, theinput):
